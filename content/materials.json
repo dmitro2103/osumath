@@ -26,5 +26,14 @@
       "icon": "fas fa-file"
     }
   ],
-  "materials": []
+  "materials": [
+    {
+      "title": "test",
+      "category": "test",
+      "author": "тест",
+      "description": "тест",
+      "file_url": "https://vk.com/feed",
+      "date": "23124234523"
+    }
+  ]
 }
