@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методическая копилка | ПЦК Физико-математических дисциплин</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .materials-section { padding: 48px 0 80px; }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .material-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--sh-sm);
+            transition: all .4s var(--ease-spring);
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .material-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-brand);
+            opacity: 0;
+            transition: opacity .3s var(--ease);
+        }
+        .material-card:hover { transform: translateY(-8px); box-shadow: var(--sh-lg); }
+        .material-card:hover::before { opacity: 1; }
+
+        .material-card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+
+        .material-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .material-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: .8rem;
+            font-weight: 600;
+            background: var(--primary-glow);
+            color: var(--primary);
+            border: 1px solid rgba(124,58,237,.15);
+        }
+        .material-category i { font-size: .75rem; }
+        .material-date { font-size: .82rem; color: var(--text-3); }
+
+        .material-card-body h3 {
+            font-size: 1.12rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.45;
+        }
+        .material-author {
+            font-size: .88rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .material-description {
+            font-size: .92rem;
+            color: var(--text-3);
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .material-card-footer {
+            padding: 16px 28px 24px;
+        }
+        .material-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--grad-brand);
+            color: #fff;
+            text-decoration: none;
+            border-radius: var(--radius-xs);
+            font-size: .88rem;
+            font-weight: 600;
+            transition: all .3s var(--ease-bounce);
+        }
+        .material-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,58,237,.3); }
+
+        .materials-empty {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-3);
+        }
+        .materials-empty i {
+            font-size: 3.5rem;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+            display: block;
+            opacity: .5;
+        }
+        .materials-empty p { font-size: 1.1rem; }
+
+        .materials-count {
+            font-size: .92rem;
+            color: var(--text-3);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .materials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="logo-text"><h1>ПЦК ФМД</h1><p>Университетский колледж ОГУ</p></div>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="staff.html"><i class="fas fa-chalkboard-teacher"></i> Состав ПЦК</a></li>
+                        <li><a href="disciplines.html"><i class="fas fa-book"></i> Дисциплины</a></li>
+                        <li><a href="additional-edu.html"><i class="fas fa-graduation-cap"></i> Доп. образование</a></li>
+                        <li><a href="materials.html" class="active"><i class="fas fa-folder-open"></i> Методическая копилка</a></li>
+                        <li><a href="week.html"><i class="fas fa-calendar-week"></i> Неделя ПЦК</a></li>
+                    </ul>
+                </nav>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+                    <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Методическая копилка</h1>
+        <p class="page-subtitle">Методические пособия, презентации, учебные материалы и документы</p>
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="materials-section">
+                <div class="filter-section">
+                    <h3>Фильтр по категории</h3>
+                    <div class="filter-buttons" id="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все материалы</button>
+                    </div>
+                </div>
+
+                <div class="materials-count" id="materials-count"></div>
+                <div class="materials-grid" id="materials-grid">
+                    <div class="materials-empty">
+                        <i class="fas fa-folder-open"></i>
+                        <p>Загрузка материалов...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><h3>ПЦК ФМД</h3><p>Предметно-цикловая комиссия<br>Физико-математических дисциплин</p></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Быстрые ссылки</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="staff.html">Состав ПЦК</a></li>
+                        <li><a href="disciplines.html">Дисциплины</a></li>
+                        <li><a href="additional-edu.html">Доп. образование</a></li>
+                        <li><a href="materials.html">Методическая копилка</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ул. Одесская, 148</p>
+                    <p><i class="fas fa-phone"></i> +7 (3532) 77-88-99</p>
+                    <p><i class="fas fa-envelope"></i> pck_physics_math@college.ogu.ru</p>
+                    <p><i class="fas fa-clock"></i> Пн-Пт: 9:00-17:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ПЦК Физико-математических дисциплин Университетского колледжа ОГУ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+    (function() {
+        function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+        var allMaterials = [];
+        var categories = [];
+        var activeFilter = 'all';
+
+        fetch('content/materials.json?t=' + Date.now())
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                categories = data.categories || [];
+                allMaterials = data.materials || [];
+                buildFilters();
+                renderMaterials();
+            })
+            .catch(function() {
+                document.getElementById('materials-grid').innerHTML =
+                    '<div class="materials-empty"><i class="fas fa-exclamation-circle"></i><p>Не удалось загрузить материалы</p></div>';
+            });
+
+        function buildFilters() {
+            var container = document.getElementById('filter-buttons');
+            var html = '<button class="filter-btn active" data-filter="all">Все материалы</button>';
+            categories.forEach(function(c) {
+                html += '<button class="filter-btn" data-filter="' + esc(c.id) + '"><i class="' + esc(c.icon) + '"></i> ' + esc(c.name) + '</button>';
+            });
+            container.innerHTML = html;
+            container.addEventListener('click', function(e) {
+                var btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                container.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                renderMaterials();
+            });
+        }
+
+        function renderMaterials() {
+            var grid = document.getElementById('materials-grid');
+            var countEl = document.getElementById('materials-count');
+            var filtered = activeFilter === 'all'
+                ? allMaterials
+                : allMaterials.filter(function(m) { return m.category === activeFilter; });
+
+            if (!filtered.length) {
+                grid.innerHTML = '<div class="materials-empty"><i class="fas fa-folder-open"></i><p>Материалы пока не добавлены</p></div>';
+                countEl.textContent = '';
+                return;
+            }
+
+            var catMap = {};
+            categories.forEach(function(c) { catMap[c.id] = c; });
+
+            var html = '';
+            filtered.forEach(function(m) {
+                var cat = catMap[m.category] || { name: m.category, icon: 'fas fa-file' };
+                html += '<div class="material-card">' +
+                    '<div class="material-card-body">' +
+                    '<div class="material-meta">' +
+                    '<span class="material-category"><i class="' + esc(cat.icon) + '"></i> ' + esc(cat.name) + '</span>' +
+                    (m.date ? '<span class="material-date">' + esc(m.date) + '</span>' : '') +
+                    '</div>' +
+                    '<h3>' + esc(m.title) + '</h3>' +
+                    (m.author ? '<div class="material-author"><i class="fas fa-user" style="margin-right:6px;font-size:.8rem;opacity:.7"></i>' + esc(m.author) + '</div>' : '') +
+                    (m.description ? '<p class="material-description">' + esc(m.description) + '</p>' : '') +
+                    '</div>' +
+                    (m.file_url ? '<div class="material-card-footer"><a href="' + esc(m.file_url) + '" class="material-link" target="_blank" rel="noopener"><i class="fas fa-download"></i> Скачать / Открыть</a></div>' : '') +
+                    '</div>';
+            });
+            grid.innerHTML = html;
+            countEl.textContent = 'Найдено материалов: ' + filtered.length;
+        }
+    })();
+    </script>
+</body>
+</html>

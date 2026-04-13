@@ -1,0 +1,125 @@
+/* ========== RESPONSIVE — Premium Design ========== */
+
+@media (max-width: 1140px) {
+    .container { padding: 0 28px; }
+    .hero .container { gap: 32px; }
+    .hero-title { font-size: 2.3rem; }
+    .hero-animated-elements { width: 210px; height: 180px; }
+    .hero-element { width: 66px; height: 66px; font-size: 1.6rem; }
+
+    .nav { order: 3; width: 100%; display: none; }
+    .nav.active {
+        display: block;
+        animation: fadeInUp .3s var(--ease-spring);
+    }
+    .nav-list {
+        flex-direction: column;
+        gap: 4px;
+    }
+    .nav-list a {
+        padding: 14px 16px;
+        justify-content: center;
+        background: var(--surface);
+        border-radius: var(--radius-xs);
+        backdrop-filter: blur(8px);
+    }
+    .nav-list a::after { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .header-controls { margin-left: auto; }
+    .header-wrapper { flex-wrap: wrap; }
+
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .mission-cards, .disciplines-grid, .programs-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .header { padding: 8px 0; }
+
+    /* Hero mobile */
+    .hero { padding: 125px 0 72px; }
+    .hero .container { flex-direction: column; text-align: center; gap: 32px; }
+    .hero-content { align-items: center; text-align: center; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: .95rem; margin: 0 auto; }
+    .hero-btns { justify-content: center; flex-direction: column; align-items: center; gap: 10px; }
+    .hero-btns .btn { width: 100%; max-width: 260px; }
+    .hero-animated-elements {
+        width: 100%; height: auto;
+        display: flex; justify-content: center; gap: 14px;
+    }
+    .hero-element {
+        position: relative;
+        width: 60px; height: 60px;
+        font-size: 1.4rem;
+        top: auto; left: auto; right: auto; bottom: auto;
+    }
+    .hero-element.math-logo,
+    .hero-element.physics-logo,
+    .hero-element.informatics-logo {
+        position: relative;
+        top: auto; left: auto; right: auto; bottom: auto;
+    }
+
+    /* Page header mobile */
+    .page-header { padding: 130px 0 56px; }
+    .page-title { font-size: 2rem; }
+    .page-subtitle { font-size: 1rem; }
+
+    /* Sections */
+    .commission-header h2 { font-size: 1.8rem; }
+    .section-title { font-size: 1.9rem; }
+    .commission-cards, .tasks-grid, .mission-cards { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .additional-info { grid-template-columns: 1fr; }
+    .quick-stats { grid-template-columns: repeat(2, 1fr); }
+    .dpo-cards { grid-template-columns: 1fr; }
+
+    /* Table */
+    .data-table td, .data-table th { padding: 14px 14px; }
+    .events-table td, .events-table th { padding: 14px 14px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer { padding: 56px 0 24px; }
+
+    /* Filter */
+    .filter-section { padding: 24px; }
+    .filter-btn { padding: 8px 16px; font-size: .85rem; }
+
+    /* Methodology */
+    .methodology-section { padding: 36px 24px; }
+
+    /* Scroll top */
+    .scroll-top-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; font-size: .95rem; }
+}
+
+@media (max-width: 576px) {
+    .container { padding: 0 16px; }
+    .logo-icon { width: 40px; height: 40px; font-size: .95rem; }
+    .logo-text h1 { font-size: 1.05rem; }
+    .logo-text p { font-size: .68rem; }
+
+    .hero { padding: 115px 0 56px; }
+    .hero-title { font-size: 1.7rem; }
+    .hero-element { width: 52px; height: 52px; font-size: 1.2rem; border-radius: 14px; }
+
+    .page-title { font-size: 1.8rem; }
+    .section-title, .commission-header h2 { font-size: 1.6rem; }
+
+    .stats-grid, .quick-stats { grid-template-columns: 1fr; }
+    .stat-item { padding: 26px; }
+    .stat-number { font-size: 2.5rem; }
+
+    .commission-card, .task-item, .info-card, .discipline-card { padding: 24px; }
+    .mission-card { padding: 24px; }
+
+    .disciplines-grid, .programs-container, .dpo-cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+    .hero-title { font-size: 1.5rem; }
+    .hero-element { width: 44px; height: 44px; font-size: 1rem; }
+    .stat-number { font-size: 2rem; }
+    .btn { padding: 10px 18px; font-size: .88rem; }
+}

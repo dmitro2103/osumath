@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дисциплины | ПЦК Физико-математических дисциплин</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="logo-text"><h1>ПЦК ФМД</h1><p>Университетский колледж ОГУ</p></div>
+                </a>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="staff.html"><i class="fas fa-chalkboard-teacher"></i> Состав ПЦК</a></li>
+                        <li><a href="disciplines.html" class="active"><i class="fas fa-book"></i> Дисциплины</a></li>
+                        <li><a href="additional-edu.html"><i class="fas fa-graduation-cap"></i> Доп. образование</a></li>
+                        <li><a href="materials.html"><i class="fas fa-folder-open"></i> Методическая копилка</a></li>
+                        <li><a href="week.html"><i class="fas fa-calendar-week"></i> Неделя ПЦК</a></li>
+                    </ul>
+                </nav>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"><i class="fas fa-moon"></i></button>
+                    <button class="mobile-menu-btn"><span></span><span></span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Преподаваемые дисциплины</h1>
+        <p class="page-subtitle">Физико-математические дисциплины, формирующие фундаментальные знания для будущих специалистов</p>
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="filter-section">
+                <h3>Фильтр по направлениям</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все дисциплины</button>
+                    <button class="filter-btn" data-filter="math">Математика</button>
+                    <button class="filter-btn" data-filter="professional">Профессиональные</button>
+                    <button class="filter-btn" data-filter="statistics">Статистика</button>
+                </div>
+            </div>
+
+            <div class="disciplines-grid" id="disciplines-container">
+                <div style="text-align:center;padding:40px;grid-column:1/-1;">Загрузка данных...</div>
+            </div>
+
+            <div class="methodology-section">
+                <h2 class="section-title">Учебно-методическое обеспечение</h2>
+                <p class="section-subtitle">Современные образовательные ресурсы и технологии для эффективного обучения</p>
+                <div class="additional-info">
+                    <div class="info-card animate-on-scroll">
+                        <div class="advantage-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Учебные пособия</h3>
+                        <p>Более 50 авторских учебных пособий и методических указаний по физико-математическим дисциплинам, соответствующих современным стандартам образования.</p>
+                    </div>
+                    <div class="info-card animate-on-scroll">
+                        <div class="advantage-icon"><i class="fas fa-desktop"></i></div>
+                        <h3>Электронные ресурсы</h3>
+                        <p>Доступ к электронным учебникам, симуляторам, тестовым системам и образовательным платформам. Интерактивные курсы и виртуальные лаборатории.</p>
+                    </div>
+                    <div class="info-card animate-on-scroll">
+                        <div class="advantage-icon"><i class="fas fa-vial"></i></div>
+                        <h3>Лабораторная база</h3>
+                        <p>Современное оборудование для проведения лабораторных работ по физике и компьютерным наукам. Цифровые лаборатории и специализированное ПО.</p>
+                    </div>
+                    <div class="info-card animate-on-scroll">
+                        <div class="advantage-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>Дистанционное обучение</h3>
+                        <p>Курсы на платформе Moodle для всех дисциплин с видеоуроками, интерактивными заданиями и системой контроля знаний.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><h3>ПЦК ФМД</h3><p>Предметно-цикловая комиссия<br>Физико-математических дисциплин</p></div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Дисциплины</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Математика</a></li>
+                        <li><a href="#">Дискретная математика</a></li>
+                        <li><a href="#">Теория вероятностей</a></li>
+                        <li><a href="#">Математическое моделирование</a></li>
+                        <li><a href="#">Высшая математика</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ресурсы</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Методические материалы</a></li>
+                        <li><a href="#">Электронные учебники</a></li>
+                        <li><a href="#">Тесты и задания</a></li>
+                        <li><a href="#">Расписание консультаций</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ул. Одесская, 148, Университетский колледж ОГУ</p>
+                    <p><i class="fas fa-phone"></i> +7 (3532) 77-88-99</p>
+                    <p><i class="fas fa-envelope"></i> pck_physics_math@college.ogu.ru</p>
+                    <p><i class="fas fa-clock"></i> Пн-Пт: 9:00-17:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ПЦК Физико-математических дисциплин Университетского колледжа ОГУ</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        (function() {
+            function escapeHtml(s) {
+                var d = document.createElement('div');
+                d.textContent = s;
+                return d.innerHTML;
+            }
+
+            fetch('content/disciplines.json?t=' + Date.now()).then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var container = document.getElementById('disciplines-container');
+                    if (!container || !data.disciplines) return;
+
+                    var html = '';
+                    data.disciplines.forEach(function(disc) {
+                        var tagsHtml = '';
+                        if (disc.tags && disc.tags.length > 0) {
+                            tagsHtml = '<div class="specialties">' +
+                                disc.tags.map(function(tag) { return '<span class="specialty-tag">' + escapeHtml(tag) + '</span>'; }).join('') +
+                                '</div>';
+                        }
+                        html += '<div class="discipline-card animate-on-scroll" data-category="' + escapeHtml(disc.category) + '">' +
+                            '<div class="discipline-icon"><i class="' + escapeHtml(disc.icon) + '"></i></div>' +
+                            '<h3>' + escapeHtml(disc.name) + '</h3>' +
+                            '<div class="discipline-description"><p>' + escapeHtml(disc.description) + '</p></div>' +
+                            tagsHtml + '</div>';
+                    });
+                    container.innerHTML = html;
+                    initFilters();
+                    initAnimations();
+                })
+                .catch(function() {
+                    var container = document.getElementById('disciplines-container');
+                    if (container) container.innerHTML = '<div style="text-align:center;padding:40px;color:#ef4444;grid-column:1/-1;">Ошибка загрузки данных</div>';
+                });
+
+            function initFilters() {
+                document.querySelectorAll('.filter-btn').forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+                        this.classList.add('active');
+                        var filter = this.dataset.filter;
+                        document.querySelectorAll('.discipline-card').forEach(function(card) {
+                            if (filter === 'all' || card.dataset.category === filter) {
+                                card.style.display = 'block';
+                                setTimeout(function() { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(function() { card.style.display = 'none'; }, 300);
+                            }
+                        });
+                    });
+                });
+            }
+
+            function initAnimations() {
+                setTimeout(function() {
+                    document.querySelectorAll('.discipline-card').forEach(function(card, index) {
+                        setTimeout(function() { card.classList.add('animated'); }, index * 100);
+                    });
+                    document.querySelectorAll('.info-card').forEach(function(card, index) {
+                        setTimeout(function() { card.classList.add('animated'); }, index * 150 + 800);
+                    });
+                }, 200);
+            }
+        })();
+    </script>
+</body>
+</html>

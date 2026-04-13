@@ -1,0 +1,6 @@
+/* Minimal browser fixes */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .hero { background: linear-gradient(135deg, #4338ca, #6366f1); }
+    .animate-on-scroll { opacity: 1; transform: none; }
+}

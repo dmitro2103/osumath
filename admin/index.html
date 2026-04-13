@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | ПЦК ФМД</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Вход -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-card">
+            <div class="logo"><i class="fas fa-database"></i></div>
+            <h1>Админ-панель</h1>
+            <p class="subtitle">ПЦК ФМД &mdash; управление данными</p>
+            <div class="login-error" id="login-error"></div>
+            <form id="login-form">
+                <label>GitHub Token</label>
+                <input type="password" id="inp-token" placeholder="ghp_xxxxxxxxxxxx" required>
+                <label>Репозиторий</label>
+                <input type="text" id="inp-repo" value="dmitro2103/adm" required>
+                <label>Ветка</label>
+                <input type="text" id="inp-branch" value="main">
+                <p class="hint">
+                    <strong>Как получить токен:</strong><br>
+                    GitHub &rarr; Settings &rarr; Developer settings &rarr; Personal access tokens &rarr; Tokens (classic) &rarr; Generate new token.<br>
+                    Поставь галочку <strong>repo</strong> и нажми Generate.
+                </p>
+                <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;font-size:.95rem;justify-content:center;border-radius:12px;">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Войти
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Админка -->
+    <div class="admin-layout">
+        <header class="admin-header">
+            <div style="display:flex;align-items:center;gap:12px">
+                <button class="btn-mobile-menu" id="btn-mobile-menu"><i class="fas fa-bars"></i></button>
+                <h1><i class="fas fa-database"></i> ПЦК Админ</h1>
+            </div>
+            <div class="admin-header-actions">
+                <span id="hdr-repo" style="opacity:.4;font-size:.8rem;font-weight:500"></span>
+                <a href="../index.html" class="btn btn-ghost btn-sm" target="_blank"><i class="fas fa-external-link-alt"></i> Сайт</a>
+                <button class="btn btn-ghost btn-sm" id="btn-logout"><i class="fas fa-right-from-bracket"></i> Выйти</button>
+            </div>
+        </header>
+        <div class="admin-body">
+            <aside class="admin-sidebar" id="admin-sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active" data-section="staff"><i class="fas fa-users"></i> Состав ПЦК</a></li>
+                    <li><a href="#" data-section="disciplines"><i class="fas fa-book"></i> Дисциплины</a></li>
+                    <li><a href="#" data-section="week"><i class="fas fa-calendar-week"></i> Неделя ПЦК</a></li>
+                    <li><a href="#" data-section="dpo"><i class="fas fa-graduation-cap"></i> Доп. образование</a></li>
+                    <li><a href="#" data-section="materials"><i class="fas fa-folder-open"></i> Мет. копилка</a></li>
+                </ul>
+            </aside>
+            <main class="admin-main">
+
+                <!-- Состав ПЦК -->
+                <div class="section-panel active" id="p-staff">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-users" style="color:var(--accent)"></i> Состав ПЦК</h2>
+                        <button class="btn btn-primary" onclick="A.editStaff()"><i class="fas fa-plus"></i> Добавить</button>
+                    </div>
+                    <div class="stats-grid" id="staff-stats"></div>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>№</th><th>ФИО</th><th>Кураторство</th><th>Категория</th><th>Награды</th><th>Действия</th></tr></thead>
+                        <tbody id="staff-tbody"></tbody>
+                    </table></div>
+                </div>
+
+                <!-- Дисциплины -->
+                <div class="section-panel" id="p-disciplines">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-book" style="color:var(--accent)"></i> Дисциплины</h2>
+                        <button class="btn btn-primary" onclick="A.editDisc()"><i class="fas fa-plus"></i> Добавить</button>
+                    </div>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>№</th><th>Название</th><th>Категория</th><th>Действия</th></tr></thead>
+                        <tbody id="disc-tbody"></tbody>
+                    </table></div>
+                </div>
+
+                <!-- Неделя ПЦК -->
+                <div class="section-panel" id="p-week">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-calendar-week" style="color:var(--accent)"></i> Неделя ПЦК</h2>
+                        <div style="display:flex;gap:8px">
+                            <button class="btn btn-secondary" onclick="A.editWeekSettings()"><i class="fas fa-gear"></i> Настройки</button>
+                            <button class="btn btn-primary" onclick="A.editEv()"><i class="fas fa-plus"></i> Добавить</button>
+                        </div>
+                    </div>
+                    <div class="stats-grid" id="week-stats"></div>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>Дата/Время</th><th>Мероприятие</th><th>Ответственный</th><th>Место</th><th>Действия</th></tr></thead>
+                        <tbody id="week-tbody"></tbody>
+                    </table></div>
+                </div>
+
+                <!-- ДПО -->
+                <div class="section-panel" id="p-dpo">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-graduation-cap" style="color:var(--accent)"></i> Дополнительное образование</h2>
+                    </div>
+                    <h3 style="margin:0 0 14px">Программы доп. образования детей и взрослых</h3>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>№</th><th>Название</th><th>Ответственный</th><th>Действия</th></tr></thead>
+                        <tbody id="dpo-adult-tbody"></tbody>
+                    </table></div>
+                    <button class="btn btn-primary btn-sm" onclick="A.editDpo('adult')" style="margin-bottom:28px"><i class="fas fa-plus"></i> Добавить</button>
+
+                    <h3 style="margin:0 0 14px">Программы повышения квалификации</h3>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>№</th><th>Название</th><th>Ответственный</th><th>Действия</th></tr></thead>
+                        <tbody id="dpo-qual-tbody"></tbody>
+                    </table></div>
+                    <button class="btn btn-primary btn-sm" onclick="A.editDpo('qual')"><i class="fas fa-plus"></i> Добавить</button>
+                </div>
+
+                <!-- Методическая копилка -->
+                <div class="section-panel" id="p-materials">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-folder-open" style="color:var(--accent)"></i> Методическая копилка</h2>
+                        <button class="btn btn-primary" onclick="A.editMat()"><i class="fas fa-plus"></i> Добавить материал</button>
+                    </div>
+                    <div class="stats-grid" id="mat-stats"></div>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>№</th><th>Название</th><th>Категория</th><th>Автор</th><th>Дата</th><th>Действия</th></tr></thead>
+                        <tbody id="mat-tbody"></tbody>
+                    </table></div>
+
+                    <h3 style="margin:28px 0 14px"><i class="fas fa-tags" style="color:var(--accent);margin-right:8px"></i>Категории материалов</h3>
+                    <div class="data-card"><table class="admin-table">
+                        <thead><tr><th>ID</th><th>Название</th><th>Действия</th></tr></thead>
+                        <tbody id="matcat-tbody"></tbody>
+                    </table></div>
+                    <button class="btn btn-primary btn-sm" onclick="A.editMatCat()" style="margin-top:12px"><i class="fas fa-plus"></i> Добавить категорию</button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Модалка -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header"><h3 id="modal-title"></h3><button class="modal-close" id="modal-close">&times;</button></div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-cancel">Отмена</button>
+                <button class="btn btn-success" id="modal-save"><i class="fas fa-check"></i> Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div class="saving-overlay" id="saving"><div class="spinner"></div><span>Сохранение...</span></div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
