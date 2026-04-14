@@ -198,6 +198,16 @@
       "awards": [
         "Грамота отдела образования администрации Тюльганского района, 2020"
       ]
+    },
+    {
+      "id": 20,
+      "name": "ntncv",
+      "degree": "",
+      "curator": "-",
+      "category": "high",
+      "categoryLabel": "Высшая",
+      "categoryOrder": "",
+      "awards": []
     }
   ]
 }
