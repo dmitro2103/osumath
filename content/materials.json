@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "id": "manuals",
-      "name": "Методические пособия",
-      "icon": "fas fa-book-open"
-    },
-    {
       "id": "presentations",
       "name": "Презентации",
       "icon": "fas fa-file-powerpoint"
