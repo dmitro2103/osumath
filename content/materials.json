@@ -1,5 +1,11 @@
 {
-  "categories": [],
+  "categories": [
+    {
+      "id": "present",
+      "name": "Презентации",
+      "icon": "fas fa-file"
+    }
+  ],
   "materials": [
     {
       "title": "test",
