@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "id": "textbooks",
-      "name": "Учебные пособия",
-      "icon": "fas fa-graduation-cap"
-    },
-    {
       "id": "documents",
       "name": "Документы",
       "icon": "fas fa-file-alt"
