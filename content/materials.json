@@ -1,11 +1,5 @@
 {
-  "categories": [
-    {
-      "id": "test",
-      "name": "test",
-      "icon": "fas fa-file"
-    }
-  ],
+  "categories": [],
   "materials": [
     {
       "title": "test",
