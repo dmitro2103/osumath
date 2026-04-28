@@ -16,14 +16,5 @@
       "icon": "fas fa-file"
     }
   ],
-  "materials": [
-    {
-      "title": "Test 2",
-      "category": "manuals",
-      "author": "test 2",
-      "description": "test",
-      "file_url": "",
-      "date": ""
-    }
-  ]
+  "materials": []
 }
