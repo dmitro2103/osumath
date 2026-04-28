@@ -16,5 +16,14 @@
       "icon": "fas fa-file"
     }
   ],
-  "materials": []
+  "materials": [
+    {
+      "title": "bash",
+      "category": "doc",
+      "author": "Комаров А.В",
+      "description": "Мануал по работе с bash",
+      "file_url": "https://habr.com/ru/companies/ruvds/articles/325522/",
+      "date": "2026-04-29"
+    }
+  ]
 }
