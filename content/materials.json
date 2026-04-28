@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "id": "presentations",
-      "name": "Презентации",
-      "icon": "fas fa-file-powerpoint"
-    },
-    {
       "id": "textbooks",
       "name": "Учебные пособия",
       "icon": "fas fa-graduation-cap"
