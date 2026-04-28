@@ -9,6 +9,11 @@
       "id": "doc",
       "name": "Документы",
       "icon": "fas fa-file"
+    },
+    {
+      "id": "metod",
+      "name": "Методические материалы",
+      "icon": "fas fa-file"
     }
   ],
   "materials": [
