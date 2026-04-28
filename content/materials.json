@@ -4,6 +4,11 @@
       "id": "present",
       "name": "Презентации",
       "icon": "fas fa-file"
+    },
+    {
+      "id": "doc",
+      "name": "Документы",
+      "icon": "fas fa-file"
     }
   ],
   "materials": [
