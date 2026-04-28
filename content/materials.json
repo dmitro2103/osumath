@@ -24,6 +24,14 @@
       "description": "Мануал по работе с bash",
       "file_url": "https://habr.com/ru/companies/ruvds/articles/325522/",
       "date": "2026-04-29"
+    },
+    {
+      "title": "Основы высш/мат",
+      "category": "present",
+      "author": "Комаров А.В",
+      "description": "Основы высшей математики",
+      "file_url": "https://elar.urfu.ru/bitstream/10995/46969/1/978-5-7996-2017-2_2017.pdf",
+      "date": ""
     }
   ]
 }
